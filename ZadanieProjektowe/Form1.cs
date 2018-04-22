@@ -16,5 +16,24 @@ namespace ZadanieProjektowe
         {
             InitializeComponent();
         }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var about = new AboutBox
+            {
+                MdiParent = this
+            };
+            about.Show();
+        }
+
+        private void CloseAppToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
