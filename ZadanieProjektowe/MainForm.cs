@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace ZadanieProjektowe
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+            // ReSharper disable once VirtualMemberCallInConstructor
+            Text = $@"{AssemblyInfoHelper.GetTitle()} v{AssemblyInfoHelper.GetVersion()}";
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)

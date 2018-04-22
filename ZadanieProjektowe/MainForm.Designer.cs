@@ -1,6 +1,6 @@
 ﻿namespace ZadanieProjektowe
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
