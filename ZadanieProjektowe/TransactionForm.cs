@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,9 @@ namespace ZadanieProjektowe
         public TransactionForm()
         {
             InitializeComponent();
+
+            // ReSharper disable once VirtualMemberCallInConstructor
+            Text = DateTime.Now.ToString(CultureInfo.CurrentCulture);
 
 
             TransactionProductsDataGridView.DataSource = _transaction.Items;
@@ -63,9 +67,9 @@ namespace ZadanieProjektowe
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void TransactionProductsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void TransactionForm_Paint(object sender, PaintEventArgs e)
         {
-
+            menuStrip1.Visible = MdiParent == null;
         }
     }
 }
