@@ -31,5 +31,11 @@ namespace ZadanieProjektowe
         {
             Close();
         }
+
+        private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new TransactionForm { MdiParent = this };
+            form.Show();
+        }
     }
 }
