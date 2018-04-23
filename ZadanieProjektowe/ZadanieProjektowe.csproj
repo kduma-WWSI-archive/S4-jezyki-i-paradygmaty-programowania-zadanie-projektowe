@@ -52,6 +52,9 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="AssemblyInfoHelper.cs" />
+    <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\SaleItem.cs" />
+    <Compile Include="Classes\Transaction.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
