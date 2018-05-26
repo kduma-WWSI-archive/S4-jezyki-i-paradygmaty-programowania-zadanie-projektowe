@@ -42,6 +42,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatustoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusBarLoader = new System.Windows.Forms.ToolStripProgressBar();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -49,12 +50,11 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.FinishButton = new System.Windows.Forms.Button();
             this.TransactionProductsDataGridView = new System.Windows.Forms.DataGridView();
-            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
-            this.StatusBarLoader = new System.Windows.Forms.ToolStripProgressBar();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuanityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -149,6 +149,14 @@
             this.StatustoolStripStatusLabel.Size = new System.Drawing.Size(139, 17);
             this.StatustoolStripStatusLabel.Text = "Ładuję Listę Produktów...";
             // 
+            // StatusBarLoader
+            // 
+            this.StatusBarLoader.MarqueeAnimationSpeed = 10;
+            this.StatusBarLoader.Name = "StatusBarLoader";
+            this.StatusBarLoader.Size = new System.Drawing.Size(100, 16);
+            this.StatusBarLoader.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.StatusBarLoader.Value = 100;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -242,22 +250,9 @@
             this.TransactionProductsDataGridView.MultiSelect = false;
             this.TransactionProductsDataGridView.Name = "TransactionProductsDataGridView";
             this.TransactionProductsDataGridView.ReadOnly = true;
-            this.TransactionProductsDataGridView.RowTemplate.Height = 40;
+            this.TransactionProductsDataGridView.RowTemplate.Height = 20;
             this.TransactionProductsDataGridView.Size = new System.Drawing.Size(360, 483);
             this.TransactionProductsDataGridView.TabIndex = 0;
-            // 
-            // ProductsDownloader
-            // 
-            this.ProductsDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ProductsDownloader_DoWork);
-            this.ProductsDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ProductsDownloader_RunWorkerCompleted);
-            // 
-            // StatusBarLoader
-            // 
-            this.StatusBarLoader.MarqueeAnimationSpeed = 10;
-            this.StatusBarLoader.Name = "StatusBarLoader";
-            this.StatusBarLoader.Size = new System.Drawing.Size(100, 16);
-            this.StatusBarLoader.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.StatusBarLoader.Value = 100;
             // 
             // NameColumn
             // 
@@ -302,6 +297,11 @@
             this.SumColumn.Name = "SumColumn";
             this.SumColumn.ReadOnly = true;
             this.SumColumn.Width = 85;
+            // 
+            // ProductsDownloader
+            // 
+            this.ProductsDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ProductsDownloader_DoWork);
+            this.ProductsDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ProductsDownloader_RunWorkerCompleted);
             // 
             // TransactionForm
             // 
