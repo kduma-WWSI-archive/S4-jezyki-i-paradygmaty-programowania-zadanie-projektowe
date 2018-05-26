@@ -4,21 +4,14 @@
     {
         public SaleItem(Product product)
         {
-            Name = product.Name;
-            Price = product.Price;
+            this.Product = product;
             Quanity = 1;
         }
 
-        public SaleItem(string name, double price, int quanity)
-        {
-            Name = name;
-            Price = price;
-            Quanity = quanity;
-        }
-
-        public string Name { get; set; }
+        public Product Product { get; set; }
+        public string Name => this.Product.Name;
+        public decimal Price => this.Product.Price;
         public int Quanity { get; set; }
-        public double Price { get; set; }
-        public double Sum => Quanity*Price;
+        public decimal Sum => Quanity*Price;
     }
 }

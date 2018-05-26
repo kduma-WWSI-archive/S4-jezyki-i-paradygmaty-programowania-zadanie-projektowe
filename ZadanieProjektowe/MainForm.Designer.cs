@@ -33,8 +33,6 @@
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oknaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CascadingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VerticalyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +40,8 @@
             this.oknoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseAlllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExtractActiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             this.nowyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.nowyToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.nowyToolStripMenuItem.Text = "&Nowy";
-            this.nowyToolStripMenuItem.Click += new System.EventHandler(this.nowyToolStripMenuItem_Click);
+            this.nowyToolStripMenuItem.Click += new System.EventHandler(this.NewTransactionToolStripMenuItem_Click);
             // 
             // CloseAppToolStripMenuItem
             // 
@@ -84,22 +84,6 @@
             this.CloseAppToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.CloseAppToolStripMenuItem.Text = "Zakończ Aplikację";
             this.CloseAppToolStripMenuItem.Click += new System.EventHandler(this.CloseAppToolStripMenuItem_Click);
-            // 
-            // pomocToolStripMenuItem
-            // 
-            this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AboutToolStripMenuItem});
-            this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
-            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.pomocToolStripMenuItem.Text = "Pomoc";
-            // 
-            // AboutToolStripMenuItem
-            // 
-            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.AboutToolStripMenuItem.Text = "&Informacje...";
-            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // oknaToolStripMenuItem
             // 
@@ -156,6 +140,22 @@
             this.ExtractActiveToolStripMenuItem.Text = "Wyodrębnij Aktywne";
             this.ExtractActiveToolStripMenuItem.Click += new System.EventHandler(this.ExtractActiveToolStripMenuItem_Click);
             // 
+            // pomocToolStripMenuItem
+            // 
+            this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutToolStripMenuItem});
+            this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.pomocToolStripMenuItem.Text = "Pomoc";
+            // 
+            // AboutToolStripMenuItem
+            // 
+            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.AboutToolStripMenuItem.Text = "&Informacje...";
+            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +168,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SprzedaSZ v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

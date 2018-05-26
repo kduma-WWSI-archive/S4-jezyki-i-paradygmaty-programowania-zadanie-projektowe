@@ -36,9 +36,14 @@ namespace ZadanieProjektowe
             Close();
         }
 
-        private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new TransactionForm { MdiParent = this };
+            OpenNewTransactionForm();
+        }
+
+        private void OpenNewTransactionForm()
+        {
+            var form = new TransactionForm {MdiParent = this};
             form.Show();
         }
 
@@ -73,6 +78,11 @@ namespace ZadanieProjektowe
             var form = ActiveMdiChild;
             form.MdiParent = null;
             form.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            OpenNewTransactionForm();
         }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +53,8 @@
             this.QuanityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
+            this.StatusBarLoader = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -127,10 +129,11 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.StatustoolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 459);
+            this.StatustoolStripStatusLabel,
+            this.StatusBarLoader});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 483);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(790, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(880, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -143,8 +146,8 @@
             // StatustoolStripStatusLabel
             // 
             this.StatustoolStripStatusLabel.Name = "StatustoolStripStatusLabel";
-            this.StatustoolStripStatusLabel.Size = new System.Drawing.Size(144, 17);
-            this.StatustoolStripStatusLabel.Text = "StatustoolStripStatusLabel";
+            this.StatustoolStripStatusLabel.Size = new System.Drawing.Size(139, 17);
+            this.StatustoolStripStatusLabel.Text = "Ładuję Listę Produktów...";
             // 
             // splitContainer1
             // 
@@ -162,8 +165,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.FinishButton);
             this.splitContainer1.Panel2.Controls.Add(this.TransactionProductsDataGridView);
             this.splitContainer1.Panel2MinSize = 200;
-            this.splitContainer1.Size = new System.Drawing.Size(790, 459);
-            this.splitContainer1.SplitterDistance = 426;
+            this.splitContainer1.Size = new System.Drawing.Size(880, 483);
+            this.splitContainer1.SplitterDistance = 516;
             this.splitContainer1.TabIndex = 1;
             // 
             // tabControl1
@@ -176,7 +179,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(426, 459);
+            this.tabControl1.Size = new System.Drawing.Size(516, 483);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
             // 
@@ -186,7 +189,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(418, 411);
+            this.tabPage1.Size = new System.Drawing.Size(508, 435);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Szybka Sprzedaż";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -197,7 +200,7 @@
             this.FastSaleFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FastSaleFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.FastSaleFlowLayoutPanel.Name = "FastSaleFlowLayoutPanel";
-            this.FastSaleFlowLayoutPanel.Size = new System.Drawing.Size(412, 405);
+            this.FastSaleFlowLayoutPanel.Size = new System.Drawing.Size(502, 429);
             this.FastSaleFlowLayoutPanel.TabIndex = 0;
             // 
             // tabPage2
@@ -205,7 +208,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(418, 411);
+            this.tabPage2.Size = new System.Drawing.Size(508, 435);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Wszystkie Produkty";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -214,7 +217,7 @@
             // 
             this.FinishButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FinishButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FinishButton.Location = new System.Drawing.Point(0, 395);
+            this.FinishButton.Location = new System.Drawing.Point(0, 419);
             this.FinishButton.Name = "FinishButton";
             this.FinishButton.Size = new System.Drawing.Size(360, 64);
             this.FinishButton.TabIndex = 1;
@@ -239,7 +242,7 @@
             this.TransactionProductsDataGridView.MultiSelect = false;
             this.TransactionProductsDataGridView.Name = "TransactionProductsDataGridView";
             this.TransactionProductsDataGridView.ReadOnly = true;
-            this.TransactionProductsDataGridView.Size = new System.Drawing.Size(360, 459);
+            this.TransactionProductsDataGridView.Size = new System.Drawing.Size(360, 483);
             this.TransactionProductsDataGridView.TabIndex = 0;
             // 
             // NameColumn
@@ -252,9 +255,9 @@
             // QuanityColumn
             // 
             this.QuanityColumn.DataPropertyName = "Quanity";
-            dataGridViewCellStyle10.Format = "# jm\\.";
-            dataGridViewCellStyle10.NullValue = null;
-            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Format = "# jm\\.";
+            dataGridViewCellStyle1.NullValue = null;
+            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.QuanityColumn.HeaderText = "Ilość";
             this.QuanityColumn.Name = "QuanityColumn";
             this.QuanityColumn.ReadOnly = true;
@@ -263,9 +266,9 @@
             // PriceColumn
             // 
             this.PriceColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle11.Format = "C2";
-            dataGridViewCellStyle11.NullValue = null;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.PriceColumn.HeaderText = "Cena";
             this.PriceColumn.Name = "PriceColumn";
             this.PriceColumn.ReadOnly = true;
@@ -274,19 +277,32 @@
             // SumColumn
             // 
             this.SumColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle12.Format = "C2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.SumColumn.HeaderText = "Suma";
             this.SumColumn.Name = "SumColumn";
             this.SumColumn.ReadOnly = true;
             this.SumColumn.Width = 85;
             // 
+            // ProductsDownloader
+            // 
+            this.ProductsDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ProductsDownloader_DoWork);
+            this.ProductsDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ProductsDownloader_RunWorkerCompleted);
+            // 
+            // StatusBarLoader
+            // 
+            this.StatusBarLoader.MarqueeAnimationSpeed = 10;
+            this.StatusBarLoader.Name = "StatusBarLoader";
+            this.StatusBarLoader.Size = new System.Drawing.Size(100, 16);
+            this.StatusBarLoader.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.StatusBarLoader.Value = 100;
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 481);
+            this.ClientSize = new System.Drawing.Size(880, 505);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -336,5 +352,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SumColumn;
         private System.Windows.Forms.Button FinishButton;
+        private System.ComponentModel.BackgroundWorker ProductsDownloader;
+        private System.Windows.Forms.ToolStripProgressBar StatusBarLoader;
     }
 }
