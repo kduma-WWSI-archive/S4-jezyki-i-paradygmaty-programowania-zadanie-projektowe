@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +43,7 @@
             this.ExtractActiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BarCodeReader = new System.IO.Ports.SerialPort(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,9 +154,15 @@
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
             this.AboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.AboutToolStripMenuItem.Text = "&Informacje...";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
+            // BarCodeReader
+            // 
+            this.BarCodeReader.BaudRate = 115200;
+            this.BarCodeReader.PortName = "COM4";
+            this.BarCodeReader.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.BarCodeReader_DataReceived);
             // 
             // MainForm
             // 
@@ -191,6 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem oknoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CloseAlllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExtractActiveToolStripMenuItem;
+        private System.IO.Ports.SerialPort BarCodeReader;
     }
 }
 

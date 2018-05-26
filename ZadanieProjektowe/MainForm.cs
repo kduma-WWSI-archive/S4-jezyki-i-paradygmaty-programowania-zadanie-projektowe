@@ -82,7 +82,51 @@ namespace ZadanieProjektowe
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            try
+            {
+                BarCodeReader.Open();
+                BarCodeReader.DiscardInBuffer();
+                BarCodeReader.NewLine = "\r\n";
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Skaner Kodów Kreskowych nie został podłączony.\nSkanowanie kodów nie będzie możliwe.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             OpenNewTransactionForm();
+        }
+
+        private void BarCodeReader_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                while (BarCodeReader.BytesToRead != 0)
+                {
+                    Form activeChild = this.ActiveMdiChild;
+                    var barcode = BarCodeReader.ReadLine().Trim();
+                    if (activeChild != null)
+                    {
+                        try
+                        {
+                            var transactionForm = (TransactionForm)activeChild;
+                            if (!transactionForm.AddProductByBarcode(barcode))
+                            {
+                                BarCodeReader.WriteLine("$?GGG");
+                                MessageBox.Show("Produktu o kodzie " + barcode + " nie ma w bazie produktów!", "Błędny Kod", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Aby zeskanować kod kreskowy, aktywuj okno z tranzakcją", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aby zeskanować kod kreskowy, aktywuj okno z tranzakcją", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+            }));
         }
     }
 }

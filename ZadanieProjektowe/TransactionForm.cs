@@ -80,5 +80,20 @@ namespace ZadanieProjektowe
             StatustoolStripStatusLabel.Text = "Gotowe";
             StatusBarLoader.Visible = false;
         }
+
+        public bool AddProductByBarcode(string barcode)
+        {
+            try
+            {
+                var db = new Entities();
+                var product = db.Products.Single(p => p.Barcode == barcode);
+                _transaction.AddItem(product);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }
