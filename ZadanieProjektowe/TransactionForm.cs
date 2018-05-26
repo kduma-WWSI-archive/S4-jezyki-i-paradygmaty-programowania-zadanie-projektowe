@@ -17,6 +17,7 @@ namespace ZadanieProjektowe
         public TransactionForm()
         {
             InitializeComponent();
+            TransactionProductsDataGridView.AutoGenerateColumns = false;
 
             // ReSharper disable once VirtualMemberCallInConstructor
             Text = DateTime.Now.ToString(CultureInfo.CurrentCulture);
@@ -54,7 +55,7 @@ namespace ZadanieProjektowe
         {
             var db = new Entities();
             e.Result = db.Products.ToList();
-            Thread.Sleep(5*1000);
+            Thread.Sleep(1*1000);
         }
 
         private void ProductsDownloader_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

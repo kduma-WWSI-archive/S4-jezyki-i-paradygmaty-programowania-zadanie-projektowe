@@ -49,12 +49,12 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.FinishButton = new System.Windows.Forms.Button();
             this.TransactionProductsDataGridView = new System.Windows.Forms.DataGridView();
+            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
+            this.StatusBarLoader = new System.Windows.Forms.ToolStripProgressBar();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuanityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
-            this.StatusBarLoader = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -242,48 +242,9 @@
             this.TransactionProductsDataGridView.MultiSelect = false;
             this.TransactionProductsDataGridView.Name = "TransactionProductsDataGridView";
             this.TransactionProductsDataGridView.ReadOnly = true;
+            this.TransactionProductsDataGridView.RowTemplate.Height = 40;
             this.TransactionProductsDataGridView.Size = new System.Drawing.Size(360, 483);
             this.TransactionProductsDataGridView.TabIndex = 0;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.DataPropertyName = "Name";
-            this.NameColumn.HeaderText = "Produkt";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            // 
-            // QuanityColumn
-            // 
-            this.QuanityColumn.DataPropertyName = "Quanity";
-            dataGridViewCellStyle1.Format = "# jm\\.";
-            dataGridViewCellStyle1.NullValue = null;
-            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.QuanityColumn.HeaderText = "Ilość";
-            this.QuanityColumn.Name = "QuanityColumn";
-            this.QuanityColumn.ReadOnly = true;
-            this.QuanityColumn.Width = 45;
-            // 
-            // PriceColumn
-            // 
-            this.PriceColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PriceColumn.HeaderText = "Cena";
-            this.PriceColumn.Name = "PriceColumn";
-            this.PriceColumn.ReadOnly = true;
-            this.PriceColumn.Width = 85;
-            // 
-            // SumColumn
-            // 
-            this.SumColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.SumColumn.HeaderText = "Suma";
-            this.SumColumn.Name = "SumColumn";
-            this.SumColumn.ReadOnly = true;
-            this.SumColumn.Width = 85;
             // 
             // ProductsDownloader
             // 
@@ -297,6 +258,50 @@
             this.StatusBarLoader.Size = new System.Drawing.Size(100, 16);
             this.StatusBarLoader.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.StatusBarLoader.Value = 100;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.DataPropertyName = "Name";
+            this.NameColumn.Frozen = true;
+            this.NameColumn.HeaderText = "Produkt";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            // 
+            // QuanityColumn
+            // 
+            this.QuanityColumn.DataPropertyName = "Quanity";
+            dataGridViewCellStyle1.Format = "# jm\\.";
+            dataGridViewCellStyle1.NullValue = null;
+            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.QuanityColumn.Frozen = true;
+            this.QuanityColumn.HeaderText = "Ilość";
+            this.QuanityColumn.Name = "QuanityColumn";
+            this.QuanityColumn.ReadOnly = true;
+            this.QuanityColumn.Width = 45;
+            // 
+            // PriceColumn
+            // 
+            this.PriceColumn.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PriceColumn.Frozen = true;
+            this.PriceColumn.HeaderText = "Cena";
+            this.PriceColumn.Name = "PriceColumn";
+            this.PriceColumn.ReadOnly = true;
+            this.PriceColumn.Width = 70;
+            // 
+            // SumColumn
+            // 
+            this.SumColumn.DataPropertyName = "Sum";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.SumColumn.Frozen = true;
+            this.SumColumn.HeaderText = "Suma";
+            this.SumColumn.Name = "SumColumn";
+            this.SumColumn.ReadOnly = true;
+            this.SumColumn.Width = 85;
             // 
             // TransactionForm
             // 
@@ -347,12 +352,12 @@
         private System.Windows.Forms.FlowLayoutPanel FastSaleFlowLayoutPanel;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView TransactionProductsDataGridView;
+        private System.Windows.Forms.Button FinishButton;
+        private System.ComponentModel.BackgroundWorker ProductsDownloader;
+        private System.Windows.Forms.ToolStripProgressBar StatusBarLoader;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuanityColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SumColumn;
-        private System.Windows.Forms.Button FinishButton;
-        private System.ComponentModel.BackgroundWorker ProductsDownloader;
-        private System.Windows.Forms.ToolStripProgressBar StatusBarLoader;
     }
 }
