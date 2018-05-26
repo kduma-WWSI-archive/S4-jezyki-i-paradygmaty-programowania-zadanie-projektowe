@@ -50,11 +50,11 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.FinishButton = new System.Windows.Forms.Button();
             this.TransactionProductsDataGridView = new System.Windows.Forms.DataGridView();
+            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuanityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -254,6 +254,11 @@
             this.TransactionProductsDataGridView.Size = new System.Drawing.Size(360, 483);
             this.TransactionProductsDataGridView.TabIndex = 0;
             // 
+            // ProductsDownloader
+            // 
+            this.ProductsDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ProductsDownloader_DoWork);
+            this.ProductsDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ProductsDownloader_RunWorkerCompleted);
+            // 
             // NameColumn
             // 
             this.NameColumn.DataPropertyName = "Name";
@@ -264,7 +269,7 @@
             // 
             // QuanityColumn
             // 
-            this.QuanityColumn.DataPropertyName = "Quanity";
+            this.QuanityColumn.DataPropertyName = "DetailedQuanity";
             dataGridViewCellStyle1.Format = "# jm\\.";
             dataGridViewCellStyle1.NullValue = null;
             this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle1;
@@ -297,11 +302,6 @@
             this.SumColumn.Name = "SumColumn";
             this.SumColumn.ReadOnly = true;
             this.SumColumn.Width = 85;
-            // 
-            // ProductsDownloader
-            // 
-            this.ProductsDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ProductsDownloader_DoWork);
-            this.ProductsDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ProductsDownloader_RunWorkerCompleted);
             // 
             // TransactionForm
             // 
