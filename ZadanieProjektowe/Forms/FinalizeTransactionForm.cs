@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using PubSub;
+using ZadanieProjektowe.Classes;
+using ZadanieProjektowe.Classes.Events;
 
-namespace ZadanieProjektowe.Classes
+namespace ZadanieProjektowe.Forms
 {
     public partial class FinalizeTransactionForm : Form
     {
         private readonly Transaction _transaction;
+
+        public event Action<Transaction> Save;
 
         public FinalizeTransactionForm(Transaction transaction)
         {
@@ -30,15 +29,15 @@ namespace ZadanieProjektowe.Classes
             listBox1.Invalidate();
         }
 
-        public event Action<Transaction> Save;
-
         private void SaveButton_Click(object sender, EventArgs e)
         {
             var db = new Entities();
 
+            var customer = ((Customer)listBox1.SelectedItem);
+
             var invoice = new Invoice
             {
-                CustomerId = ((Customer)listBox1.SelectedItem).Id,
+                CustomerId = customer.Id,
                 Date = DateTime.Now,
                 Amount = _transaction.Sum
             };
@@ -60,10 +59,8 @@ namespace ZadanieProjektowe.Classes
             }
 
             db.SaveChanges();
-
-
-
-            OnSave();
+            
+            OnSave(invoice);
             Close();
         }
 
@@ -72,9 +69,10 @@ namespace ZadanieProjektowe.Classes
             Close();
         }
 
-        protected virtual void OnSave()
+        protected virtual void OnSave(Invoice invoice)
         {
             Save?.Invoke(_transaction);
+            this.Publish(new NewInvoiceWasCreatedEvent(invoice));
         }
     }
 }

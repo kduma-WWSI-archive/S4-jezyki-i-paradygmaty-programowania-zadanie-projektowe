@@ -116,6 +116,7 @@
     <Compile Include="Classes\Events\BarcodeErrorEncounteredEvent.cs" />
     <Compile Include="Classes\Events\BarcodeWasScannedEvent.cs" />
     <Compile Include="Classes\Events\CantConnectToTheBarcodeReaderEvent.cs" />
+    <Compile Include="Classes\Events\NewInvoiceWasCreatedEvent.cs" />
     <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

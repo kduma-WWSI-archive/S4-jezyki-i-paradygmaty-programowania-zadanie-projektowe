@@ -33,9 +33,9 @@
             this.StatustoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusBarLoader = new System.Windows.Forms.ToolStripProgressBar();
             this.InvoicesDownloader = new System.ComponentModel.BackgroundWorker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridView = new System.Windows.Forms.DataGridView();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -75,31 +75,31 @@
             this.InvoicesDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.InvoicesDownloader_DoWork);
             this.InvoicesDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.InvoicesDownloader_RunWorkerCompleted);
             // 
-            // dataGridView1
+            // gridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 428);
-            this.dataGridView1.TabIndex = 2;
+            this.gridView.AllowUserToAddRows = false;
+            this.gridView.AllowUserToDeleteRows = false;
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridView.Location = new System.Drawing.Point(0, 0);
+            this.gridView.Name = "gridView";
+            this.gridView.ReadOnly = true;
+            this.gridView.Size = new System.Drawing.Size(800, 428);
+            this.gridView.TabIndex = 2;
             // 
             // ListInvoicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridView);
             this.Controls.Add(this.statusStrip1);
             this.Name = "ListInvoicesForm";
             this.Text = "ListInvoicesForm";
             this.Load += new System.EventHandler(this.ListInvoicesForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +112,6 @@
         private System.Windows.Forms.ToolStripStatusLabel StatustoolStripStatusLabel;
         private System.Windows.Forms.ToolStripProgressBar StatusBarLoader;
         private System.ComponentModel.BackgroundWorker InvoicesDownloader;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridView;
     }
 }

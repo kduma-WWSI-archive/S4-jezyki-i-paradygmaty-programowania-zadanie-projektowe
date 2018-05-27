@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PubSub;
+using ZadanieProjektowe.Classes.Events;
 
 namespace ZadanieProjektowe.Forms
 {
@@ -17,20 +19,27 @@ namespace ZadanieProjektowe.Forms
         {
             InitializeComponent();
             InvoicesDownloader.RunWorkerAsync();
+
+            this.Subscribe<NewInvoiceWasCreatedEvent>(e =>
+            {
+                StatustoolStripStatusLabel.Text = "Ładuję Listę Faktur...";
+                StatusBarLoader.Visible = true;
+
+                InvoicesDownloader.RunWorkerAsync();
+            });
         }
 
         private void InvoicesDownloader_DoWork(object sender, DoWorkEventArgs e)
         {
             var db = new Entities();
             e.Result = db.Invoices.ToList();
-            Thread.Sleep(1 * 1000);
         }
 
         private void InvoicesDownloader_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            dataGridView1.DataSource = e.Result;
-            StatustoolStripStatusLabel.Text = "Gotowe";
+            gridView.DataSource = e.Result;
             StatusBarLoader.Visible = false;
+            StatustoolStripStatusLabel.Text = "Gotowe";
         }
 
         private void ListInvoicesForm_Load(object sender, EventArgs e)

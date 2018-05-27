@@ -8,7 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using ZadanieProjektowe.Classes;
 
-namespace ZadanieProjektowe
+namespace ZadanieProjektowe.Forms
 {
     public partial class TransactionForm : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace ZadanieProjektowe
+﻿namespace ZadanieProjektowe.Forms
 {
     partial class TransactionForm
     {

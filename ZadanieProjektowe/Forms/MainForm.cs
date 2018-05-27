@@ -10,6 +10,7 @@ namespace ZadanieProjektowe.Forms
     public partial class MainForm : Form
     {
         private readonly BarCodeScanner _scanner = new BarCodeScanner();
+
         public MainForm()
         {
             InitializeComponent();
@@ -53,6 +54,18 @@ namespace ZadanieProjektowe.Forms
             });
         }
 
+        private void OpenInvoicesListForm()
+        {
+            var form = new ListInvoicesForm { MdiParent = this };
+            form.Show();
+        }
+
+        private void OpenNewTransactionForm()
+        {
+            var form = new TransactionForm {MdiParent = this};
+            form.Show();
+        }
+
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MdiChildren.OfType<AboutBox>().Any()) return;
@@ -73,12 +86,6 @@ namespace ZadanieProjektowe.Forms
         private void NewTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenNewTransactionForm();
-        }
-
-        private void OpenNewTransactionForm()
-        {
-            var form = new TransactionForm {MdiParent = this};
-            form.Show();
         }
 
         private void CascadingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,12 +132,6 @@ namespace ZadanieProjektowe.Forms
         private void listaFakturToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenInvoicesListForm();
-        }
-
-        private void OpenInvoicesListForm()
-        {
-            var form = new ListInvoicesForm { MdiParent = this };
-            form.Show();
         }
     }
 }
