@@ -1,24 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using PubSub;
 using ZadanieProjektowe.Classes;
-using ZadanieProjektowe.Forms;
+using ZadanieProjektowe.Classes.Events;
 
-namespace ZadanieProjektowe
+namespace ZadanieProjektowe.Forms
 {
     public partial class MainForm : Form
     {
+        private readonly BarCodeScanner _scanner = new BarCodeScanner();
         public MainForm()
         {
             InitializeComponent();
             // ReSharper disable once VirtualMemberCallInConstructor
             Text = $@"{AssemblyInfoHelper.GetTitle()} v{AssemblyInfoHelper.GetVersion()}";
+
+            this.Subscribe<CantConnectToTheBarcodeReaderEvent>(e => {
+                Invoke(new Action(() =>
+                {
+                    MessageBox.Show("Skaner Kodów Kreskowych nie został podłączony.\nSkanowanie kodów nie będzie możliwe.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }));
+            });
+
+            this.Subscribe<BarcodeWasScannedEvent>(e => {
+                Invoke(new Action(() =>
+                {
+                    var activeChild = ActiveMdiChild;
+
+                    if (activeChild != null)
+                    {
+                        try
+                        {
+                            var transactionForm = (TransactionForm)activeChild;
+                            if (transactionForm.AddProductByBarcode(e.Barcode))
+                                return;
+
+                            this.Publish(new BarcodeErrorEncounteredEvent());
+
+                            MessageBox.Show("Produktu o kodzie " + e.Barcode + " nie ma w bazie produktów!", "Błędny Kod", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Aby zeskanować kod kreskowy, aktywuj okno z tranzakcją", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aby zeskanować kod kreskowy, aktywuj okno z tranzakcją", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }));
+            });
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,52 +116,10 @@ namespace ZadanieProjektowe
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                BarCodeReader.Open();
-                BarCodeReader.DiscardInBuffer();
-                BarCodeReader.NewLine = "\r\n";
-            }
-            catch (Exception exception)
-            {
-                //MessageBox.Show("Skaner Kodów Kreskowych nie został podłączony.\nSkanowanie kodów nie będzie możliwe.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            _scanner.Start();
 
-            //           OpenNewTransactionForm();
+            // OpenNewTransactionForm();
             OpenInvoicesListForm();
-        }
-
-        private void BarCodeReader_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
-        {
-            Invoke(new Action(() =>
-            {
-                while (BarCodeReader.BytesToRead != 0)
-                {
-                    Form activeChild = this.ActiveMdiChild;
-                    var barcode = BarCodeReader.ReadLine().Trim();
-                    if (activeChild != null)
-                    {
-                        try
-                        {
-                            var transactionForm = (TransactionForm)activeChild;
-                            if (!transactionForm.AddProductByBarcode(barcode))
-                            {
-                                BarCodeReader.WriteLine("$?GGG");
-                                MessageBox.Show("Produktu o kodzie " + barcode + " nie ma w bazie produktów!", "Błędny Kod", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Aby zeskanować kod kreskowy, aktywuj okno z tranzakcją", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Aby zeskanować kod kreskowy, aktywuj okno z tranzakcją", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
-                }
-            }));
         }
 
         private void listaFakturToolStripMenuItem_Click(object sender, EventArgs e)

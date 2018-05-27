@@ -1,4 +1,4 @@
-﻿namespace ZadanieProjektowe
+﻿namespace ZadanieProjektowe.Forms
 {
     partial class MainForm
     {
@@ -43,7 +43,6 @@
             this.ExtractActiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BarCodeReader = new System.IO.Ports.SerialPort(this.components);
             this.listaFakturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -160,12 +159,6 @@
             this.AboutToolStripMenuItem.Text = "&Informacje...";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
-            // BarCodeReader
-            // 
-            this.BarCodeReader.BaudRate = 115200;
-            this.BarCodeReader.PortName = "COM4";
-            this.BarCodeReader.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.BarCodeReader_DataReceived);
-            // 
             // listaFakturToolStripMenuItem
             // 
             this.listaFakturToolStripMenuItem.Name = "listaFakturToolStripMenuItem";
@@ -208,7 +201,6 @@
         private System.Windows.Forms.ToolStripMenuItem oknoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CloseAlllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExtractActiveToolStripMenuItem;
-        private System.IO.Ports.SerialPort BarCodeReader;
         private System.Windows.Forms.ToolStripMenuItem listaFakturToolStripMenuItem;
     }
 }
