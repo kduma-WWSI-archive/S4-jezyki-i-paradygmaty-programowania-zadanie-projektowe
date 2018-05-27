@@ -40,7 +40,7 @@ namespace ZadanieProjektowe.Classes
             {
                 CustomerId = ((Customer)listBox1.SelectedItem).Id,
                 Date = DateTime.Now,
-                Number = 1
+                Amount = _transaction.Sum
             };
             db.Invoices.Add(invoice);
 
@@ -55,8 +55,9 @@ namespace ZadanieProjektowe.Classes
 
                 };
                 db.InvoicesPositions.Add(position);
+                var product = db.Products.First(p => p.Id == transactionItem.Product.Id);
+                product.Quanity -= (short) transactionItem.Quanity;
             }
-
 
             db.SaveChanges();
 

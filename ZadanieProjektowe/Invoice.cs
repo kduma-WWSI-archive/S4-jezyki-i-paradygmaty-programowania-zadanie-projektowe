@@ -22,8 +22,8 @@ namespace ZadanieProjektowe
     
         public int Id { get; set; }
         public System.DateTime Date { get; set; }
-        public int Number { get; set; }
         public int CustomerId { get; set; }
+        public Nullable<decimal> Amount { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

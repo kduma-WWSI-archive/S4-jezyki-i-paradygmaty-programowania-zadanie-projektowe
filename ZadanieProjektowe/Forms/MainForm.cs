@@ -94,17 +94,17 @@ namespace ZadanieProjektowe
                 //MessageBox.Show("Skaner Kodów Kreskowych nie został podłączony.\nSkanowanie kodów nie będzie możliwe.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-           // OpenNewTransactionForm();
-
-
-            var s = new Transaction();
-            var db = new Entities();
-            s.AddItem(db.Products.Single(p => p.Id == 2));
-            s.AddItem(db.Products.Single(p => p.Id == 3));
-            s.AddItem(db.Products.Single(p => p.Id == 4));
-            s.AddItem(db.Products.Single(p => p.Id == 5));
-            var form = new FinalizeTransactionForm(s);
-            form.ShowDialog();
+           OpenNewTransactionForm();
+//
+//
+//            var s = new Transaction();
+//            var db = new Entities();
+//            s.AddItem(db.Products.Single(p => p.Id == 2));
+//            s.AddItem(db.Products.Single(p => p.Id == 3));
+//            s.AddItem(db.Products.Single(p => p.Id == 4));
+//            s.AddItem(db.Products.Single(p => p.Id == 5));
+//            var form = new FinalizeTransactionForm(s);
+//            form.ShowDialog();
 
            // Close();
         }
