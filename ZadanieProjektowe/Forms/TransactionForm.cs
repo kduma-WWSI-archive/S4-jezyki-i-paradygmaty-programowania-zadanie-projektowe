@@ -95,5 +95,27 @@ namespace ZadanieProjektowe
                 return false;
             }
         }
+
+        private void FinishButton_Click(object sender, EventArgs e)
+        {
+            ShowFinalizeDialog();
+        }
+
+        private void ShowFinalizeDialog()
+        {
+            var form = new FinalizeTransactionForm(_transaction);
+            form.Save += FormOnSave;
+            form.ShowDialog();
+        }
+
+        private void FormOnSave(Transaction obj)
+        {
+            Close();
+        }
+
+        private void zapiszToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFinalizeDialog();
+        }
     }
 }

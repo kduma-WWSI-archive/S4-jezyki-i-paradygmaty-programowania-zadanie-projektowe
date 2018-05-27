@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.drukujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,11 +48,11 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.FinishButton = new System.Windows.Forms.Button();
             this.TransactionProductsDataGridView = new System.Windows.Forms.DataGridView();
-            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuanityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductsDownloader = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -72,7 +70,7 @@
             this.plikToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(790, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(880, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -82,8 +80,6 @@
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zapiszToolStripMenuItem,
             this.toolStripSeparator1,
-            this.drukujToolStripMenuItem,
-            this.toolStripSeparator2,
             this.zakończToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
@@ -95,33 +91,20 @@
             this.zapiszToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.zapiszToolStripMenuItem.Name = "zapiszToolStripMenuItem";
             this.zapiszToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.zapiszToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.zapiszToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zapiszToolStripMenuItem.Text = "&Zapisz";
+            this.zapiszToolStripMenuItem.Click += new System.EventHandler(this.zapiszToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
-            // 
-            // drukujToolStripMenuItem
-            // 
-            this.drukujToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("drukujToolStripMenuItem.Image")));
-            this.drukujToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.drukujToolStripMenuItem.Name = "drukujToolStripMenuItem";
-            this.drukujToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.drukujToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.drukujToolStripMenuItem.Text = "&Drukuj";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // zakończToolStripMenuItem
             // 
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
             this.zakończToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zakończToolStripMenuItem.Text = "&Zamknij";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
@@ -231,6 +214,7 @@
             this.FinishButton.TabIndex = 1;
             this.FinishButton.Text = "0,00";
             this.FinishButton.UseVisualStyleBackColor = true;
+            this.FinishButton.Click += new System.EventHandler(this.FinishButton_Click);
             // 
             // TransactionProductsDataGridView
             // 
@@ -254,11 +238,6 @@
             this.TransactionProductsDataGridView.Size = new System.Drawing.Size(360, 483);
             this.TransactionProductsDataGridView.TabIndex = 0;
             // 
-            // ProductsDownloader
-            // 
-            this.ProductsDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ProductsDownloader_DoWork);
-            this.ProductsDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ProductsDownloader_RunWorkerCompleted);
-            // 
             // NameColumn
             // 
             this.NameColumn.DataPropertyName = "Name";
@@ -270,9 +249,9 @@
             // QuanityColumn
             // 
             this.QuanityColumn.DataPropertyName = "DetailedQuanity";
-            dataGridViewCellStyle1.Format = "# jm\\.";
-            dataGridViewCellStyle1.NullValue = null;
-            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "# jm\\.";
+            dataGridViewCellStyle4.NullValue = null;
+            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.QuanityColumn.Frozen = true;
             this.QuanityColumn.HeaderText = "Ilość";
             this.QuanityColumn.Name = "QuanityColumn";
@@ -282,9 +261,9 @@
             // PriceColumn
             // 
             this.PriceColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.PriceColumn.Frozen = true;
             this.PriceColumn.HeaderText = "Cena";
             this.PriceColumn.Name = "PriceColumn";
@@ -294,14 +273,19 @@
             // SumColumn
             // 
             this.SumColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.SumColumn.Frozen = true;
             this.SumColumn.HeaderText = "Suma";
             this.SumColumn.Name = "SumColumn";
             this.SumColumn.ReadOnly = true;
             this.SumColumn.Width = 85;
+            // 
+            // ProductsDownloader
+            // 
+            this.ProductsDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ProductsDownloader_DoWork);
+            this.ProductsDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ProductsDownloader_RunWorkerCompleted);
             // 
             // TransactionForm
             // 
@@ -340,8 +324,6 @@
         private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zapiszToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem drukujToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
