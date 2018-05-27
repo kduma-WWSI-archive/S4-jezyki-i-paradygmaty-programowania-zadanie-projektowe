@@ -72,6 +72,12 @@
     <Compile Include="Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ListInvoicesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListInvoicesForm.Designer.cs">
+      <DependentUpon>ListInvoicesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Invoice.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FinalizeTransactionForm.resx">
       <DependentUpon>FinalizeTransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListInvoicesForm.resx">
+      <DependentUpon>ListInvoicesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

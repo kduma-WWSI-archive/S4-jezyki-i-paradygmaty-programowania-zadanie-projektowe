@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,20 +91,20 @@
             this.zapiszToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.zapiszToolStripMenuItem.Name = "zapiszToolStripMenuItem";
             this.zapiszToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.zapiszToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zapiszToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.zapiszToolStripMenuItem.Text = "&Zapisz";
             this.zapiszToolStripMenuItem.Click += new System.EventHandler(this.zapiszToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
             // 
             // zakończToolStripMenuItem
             // 
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
             this.zakończToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.zakończToolStripMenuItem.Text = "&Zamknij";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
@@ -249,9 +249,9 @@
             // QuanityColumn
             // 
             this.QuanityColumn.DataPropertyName = "DetailedQuanity";
-            dataGridViewCellStyle4.Format = "# jm\\.";
-            dataGridViewCellStyle4.NullValue = null;
-            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Format = "# jm\\.";
+            dataGridViewCellStyle7.NullValue = null;
+            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.QuanityColumn.Frozen = true;
             this.QuanityColumn.HeaderText = "Ilość";
             this.QuanityColumn.Name = "QuanityColumn";
@@ -261,9 +261,9 @@
             // PriceColumn
             // 
             this.PriceColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.PriceColumn.Frozen = true;
             this.PriceColumn.HeaderText = "Cena";
             this.PriceColumn.Name = "PriceColumn";
@@ -273,9 +273,9 @@
             // SumColumn
             // 
             this.SumColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.SumColumn.Frozen = true;
             this.SumColumn.HeaderText = "Suma";
             this.SumColumn.Name = "SumColumn";
