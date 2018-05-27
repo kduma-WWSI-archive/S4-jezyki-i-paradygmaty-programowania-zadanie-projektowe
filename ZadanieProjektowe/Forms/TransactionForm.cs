@@ -39,8 +39,8 @@ namespace ZadanieProjektowe
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
-            WindowState = FormWindowState.Maximized;
+//            WindowState = FormWindowState.Minimized;
+//            WindowState = FormWindowState.Maximized;
         }
 
         private void TransactionForm_Paint(object sender, PaintEventArgs e)

@@ -44,6 +44,7 @@
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BarCodeReader = new System.IO.Ports.SerialPort(this.components);
+            this.listaFakturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             // plikToolStripMenuItem
             // 
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listaFakturToolStripMenuItem,
             this.nowyToolStripMenuItem,
             this.CloseAppToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
@@ -164,6 +166,13 @@
             this.BarCodeReader.PortName = "COM4";
             this.BarCodeReader.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.BarCodeReader_DataReceived);
             // 
+            // listaFakturToolStripMenuItem
+            // 
+            this.listaFakturToolStripMenuItem.Name = "listaFakturToolStripMenuItem";
+            this.listaFakturToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.listaFakturToolStripMenuItem.Text = "Lista Faktur";
+            this.listaFakturToolStripMenuItem.Click += new System.EventHandler(this.listaFakturToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +209,7 @@
         private System.Windows.Forms.ToolStripMenuItem CloseAlllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExtractActiveToolStripMenuItem;
         private System.IO.Ports.SerialPort BarCodeReader;
+        private System.Windows.Forms.ToolStripMenuItem listaFakturToolStripMenuItem;
     }
 }
 

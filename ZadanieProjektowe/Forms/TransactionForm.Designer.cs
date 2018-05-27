@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -249,9 +249,9 @@
             // QuanityColumn
             // 
             this.QuanityColumn.DataPropertyName = "DetailedQuanity";
-            dataGridViewCellStyle7.Format = "# jm\\.";
-            dataGridViewCellStyle7.NullValue = null;
-            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Format = "# jm\\.";
+            dataGridViewCellStyle4.NullValue = null;
+            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.QuanityColumn.Frozen = true;
             this.QuanityColumn.HeaderText = "Ilość";
             this.QuanityColumn.Name = "QuanityColumn";
@@ -261,9 +261,9 @@
             // PriceColumn
             // 
             this.PriceColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.PriceColumn.Frozen = true;
             this.PriceColumn.HeaderText = "Cena";
             this.PriceColumn.Name = "PriceColumn";
@@ -273,9 +273,9 @@
             // SumColumn
             // 
             this.SumColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle9.Format = "C2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.SumColumn.Frozen = true;
             this.SumColumn.HeaderText = "Suma";
             this.SumColumn.Name = "SumColumn";
@@ -297,9 +297,7 @@
             this.Controls.Add(this.statusStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TransactionForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransactionForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TransactionForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TransactionForm_Paint);
             this.menuStrip1.ResumeLayout(false);
