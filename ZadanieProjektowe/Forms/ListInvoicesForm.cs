@@ -19,6 +19,7 @@ namespace ZadanieProjektowe.Forms
         {
             InitializeComponent();
             InvoicesDownloader.RunWorkerAsync();
+            gridView.AutoGenerateColumns = false;
 
             this.Subscribe<NewInvoiceWasCreatedEvent>(e =>
             {
@@ -27,6 +28,11 @@ namespace ZadanieProjektowe.Forms
 
                 InvoicesDownloader.RunWorkerAsync();
             });
+        }
+
+        ~ListInvoicesForm()
+        {
+            this.Unsubscribe<NewInvoiceWasCreatedEvent>();
         }
 
         private void InvoicesDownloader_DoWork(object sender, DoWorkEventArgs e)

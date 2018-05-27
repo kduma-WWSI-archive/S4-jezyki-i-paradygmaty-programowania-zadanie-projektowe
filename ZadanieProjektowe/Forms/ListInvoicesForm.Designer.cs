@@ -34,6 +34,10 @@
             this.StatusBarLoader = new System.Windows.Forms.ToolStripProgressBar();
             this.InvoicesDownloader = new System.ComponentModel.BackgroundWorker();
             this.gridView = new System.Windows.Forms.DataGridView();
+            this.InvoiceNumberHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
@@ -80,12 +84,45 @@
             this.gridView.AllowUserToAddRows = false;
             this.gridView.AllowUserToDeleteRows = false;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.InvoiceNumberHeader,
+            this.AmountHeader,
+            this.DateHeader,
+            this.CustomerHeader});
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.Location = new System.Drawing.Point(0, 0);
             this.gridView.Name = "gridView";
             this.gridView.ReadOnly = true;
             this.gridView.Size = new System.Drawing.Size(800, 428);
             this.gridView.TabIndex = 2;
+            // 
+            // InvoiceNumberHeader
+            // 
+            this.InvoiceNumberHeader.DataPropertyName = "Id";
+            this.InvoiceNumberHeader.HeaderText = "Numer Faktury";
+            this.InvoiceNumberHeader.Name = "InvoiceNumberHeader";
+            this.InvoiceNumberHeader.ReadOnly = true;
+            // 
+            // AmountHeader
+            // 
+            this.AmountHeader.DataPropertyName = "Amount";
+            this.AmountHeader.HeaderText = "Kwota";
+            this.AmountHeader.Name = "AmountHeader";
+            this.AmountHeader.ReadOnly = true;
+            // 
+            // DateHeader
+            // 
+            this.DateHeader.DataPropertyName = "Date";
+            this.DateHeader.HeaderText = "Data Wystawienia";
+            this.DateHeader.Name = "DateHeader";
+            this.DateHeader.ReadOnly = true;
+            // 
+            // CustomerHeader
+            // 
+            this.CustomerHeader.DataPropertyName = "CustomerName";
+            this.CustomerHeader.HeaderText = "Nazwa Kontrachenta";
+            this.CustomerHeader.Name = "CustomerHeader";
+            this.CustomerHeader.ReadOnly = true;
             // 
             // ListInvoicesForm
             // 
@@ -113,5 +150,9 @@
         private System.Windows.Forms.ToolStripProgressBar StatusBarLoader;
         private System.ComponentModel.BackgroundWorker InvoicesDownloader;
         private System.Windows.Forms.DataGridView gridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceNumberHeader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountHeader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateHeader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerHeader;
     }
 }
