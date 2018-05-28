@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AssemblyInfoHelper.cs" />
     <Compile Include="Classes\BarCodeScanner.cs" />
     <Compile Include="Classes\Events\BarcodeErrorEncounteredEvent.cs" />
     <Compile Include="Classes\Events\BarcodeWasScannedEvent.cs" />
@@ -124,7 +125,6 @@
     <Compile Include="Forms\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssemblyInfoHelper.cs" />
     <Compile Include="Forms\FinalizeTransactionForm.cs">
       <SubType>Form</SubType>
     </Compile>

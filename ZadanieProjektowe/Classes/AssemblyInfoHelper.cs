@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ZadanieProjektowe
+namespace ZadanieProjektowe.Classes
 {
     internal class AssemblyInfoHelper
     {

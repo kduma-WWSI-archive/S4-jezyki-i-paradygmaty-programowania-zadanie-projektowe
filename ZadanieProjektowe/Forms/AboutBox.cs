@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ZadanieProjektowe.Classes;
 
 namespace ZadanieProjektowe.Forms
 {
