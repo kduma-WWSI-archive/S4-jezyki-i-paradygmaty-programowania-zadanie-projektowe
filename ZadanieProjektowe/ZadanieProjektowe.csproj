@@ -117,6 +117,7 @@
     <Compile Include="Classes\Events\BarcodeErrorEncounteredEvent.cs" />
     <Compile Include="Classes\Events\BarcodeWasScannedEvent.cs" />
     <Compile Include="Classes\Events\CantConnectToTheBarcodeReaderEvent.cs" />
+    <Compile Include="Classes\Events\NewCustomerWasCreatedEvent.cs" />
     <Compile Include="Classes\Events\NewInvoiceWasCreatedEvent.cs" />
     <Compile Include="Classes\Models\Invoice.cs" />
     <Compile Include="Forms\AboutBox.cs">
@@ -135,6 +136,12 @@
     <Compile Include="Classes\Transaction.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListCustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListCustomersForm.Designer.cs">
+      <DependentUpon>ListCustomersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ListInvoicesForm.cs">
       <SubType>Form</SubType>
@@ -185,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FinalizeTransactionForm.resx">
       <DependentUpon>FinalizeTransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListCustomersForm.resx">
+      <DependentUpon>ListCustomersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListInvoicesForm.resx">
       <DependentUpon>ListInvoicesForm.cs</DependentUpon>

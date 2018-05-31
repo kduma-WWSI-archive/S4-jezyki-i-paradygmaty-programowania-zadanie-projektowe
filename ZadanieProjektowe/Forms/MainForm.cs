@@ -60,6 +60,12 @@ namespace ZadanieProjektowe.Forms
             form.Show();
         }
 
+        private void OpenCustomersListForm()
+        {
+            var form = new ListCustomersForm() { MdiParent = this };
+            form.Show();
+        }
+
         private void OpenNewTransactionForm()
         {
             var form = new TransactionForm {MdiParent = this};
@@ -125,13 +131,19 @@ namespace ZadanieProjektowe.Forms
         {
             _scanner.Start();
 
-            // OpenNewTransactionForm();
+            OpenNewTransactionForm();
             OpenInvoicesListForm();
+            OpenCustomersListForm();
         }
 
         private void listaFakturToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenInvoicesListForm();
+        }
+
+        private void listaKontrachentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenCustomersListForm();
         }
     }
 }

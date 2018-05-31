@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaFakturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oknaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +43,7 @@
             this.ExtractActiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaFakturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaKontrachentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,11 +63,19 @@
             // 
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listaFakturToolStripMenuItem,
+            this.listaKontrachentToolStripMenuItem,
             this.nowyToolStripMenuItem,
             this.CloseAppToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem.Text = "&Plik";
+            // 
+            // listaFakturToolStripMenuItem
+            // 
+            this.listaFakturToolStripMenuItem.Name = "listaFakturToolStripMenuItem";
+            this.listaFakturToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.listaFakturToolStripMenuItem.Text = "Lista Faktur";
+            this.listaFakturToolStripMenuItem.Click += new System.EventHandler(this.listaFakturToolStripMenuItem_Click);
             // 
             // nowyToolStripMenuItem
             // 
@@ -159,12 +167,12 @@
             this.AboutToolStripMenuItem.Text = "&Informacje...";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
-            // listaFakturToolStripMenuItem
+            // listaKontrachentToolStripMenuItem
             // 
-            this.listaFakturToolStripMenuItem.Name = "listaFakturToolStripMenuItem";
-            this.listaFakturToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.listaFakturToolStripMenuItem.Text = "Lista Faktur";
-            this.listaFakturToolStripMenuItem.Click += new System.EventHandler(this.listaFakturToolStripMenuItem_Click);
+            this.listaKontrachentToolStripMenuItem.Name = "listaKontrachentToolStripMenuItem";
+            this.listaKontrachentToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.listaKontrachentToolStripMenuItem.Text = "Lista Kontrachent";
+            this.listaKontrachentToolStripMenuItem.Click += new System.EventHandler(this.listaKontrachentToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -202,6 +210,7 @@
         private System.Windows.Forms.ToolStripMenuItem CloseAlllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExtractActiveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaFakturToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaKontrachentToolStripMenuItem;
     }
 }
 
