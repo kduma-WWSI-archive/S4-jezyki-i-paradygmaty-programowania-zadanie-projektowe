@@ -31,11 +31,6 @@ namespace ZadanieProjektowe.Forms
             });
         }
 
-        ~ListInvoicesForm()
-        {
-            this.Unsubscribe<NewInvoiceWasCreatedEvent>();
-        }
-
         private void InvoicesDownloader_DoWork(object sender, DoWorkEventArgs e)
         {
             var db = new Entities();
@@ -59,6 +54,11 @@ namespace ZadanieProjektowe.Forms
             var invoiceId = (int) gridView.Rows[e.RowIndex].Cells[0].Value;
             var form = new ViewInvoiceForm(invoiceId) {MdiParent = this.MdiParent};
             form.Show();
+        }
+
+        private void ListInvoicesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Unsubscribe<NewInvoiceWasCreatedEvent>();
         }
     }
 }

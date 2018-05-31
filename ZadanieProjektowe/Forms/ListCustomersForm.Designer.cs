@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.gridView = new System.Windows.Forms.DataGridView();
+            this.InvoiceNumberHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VatIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatustoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusBarLoader = new System.Windows.Forms.ToolStripProgressBar();
             this.CustomersDownloader = new System.ComponentModel.BackgroundWorker();
-            this.InvoiceNumberHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VatIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,27 @@
             this.gridView.ReadOnly = true;
             this.gridView.Size = new System.Drawing.Size(800, 450);
             this.gridView.TabIndex = 3;
+            // 
+            // InvoiceNumberHeader
+            // 
+            this.InvoiceNumberHeader.DataPropertyName = "Id";
+            this.InvoiceNumberHeader.HeaderText = "Numer Klienta";
+            this.InvoiceNumberHeader.Name = "InvoiceNumberHeader";
+            this.InvoiceNumberHeader.ReadOnly = true;
+            // 
+            // NameHeader
+            // 
+            this.NameHeader.DataPropertyName = "Name";
+            this.NameHeader.HeaderText = "Nazwa";
+            this.NameHeader.Name = "NameHeader";
+            this.NameHeader.ReadOnly = true;
+            // 
+            // VatIDHeader
+            // 
+            this.VatIDHeader.DataPropertyName = "VatID";
+            this.VatIDHeader.HeaderText = "Nip";
+            this.VatIDHeader.Name = "VatIDHeader";
+            this.VatIDHeader.ReadOnly = true;
             // 
             // statusStrip1
             // 
@@ -94,27 +115,6 @@
             this.CustomersDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CustomersDownloader_DoWork);
             this.CustomersDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.CustomersDownloader_RunWorkerCompleted);
             // 
-            // InvoiceNumberHeader
-            // 
-            this.InvoiceNumberHeader.DataPropertyName = "Id";
-            this.InvoiceNumberHeader.HeaderText = "Numer Klienta";
-            this.InvoiceNumberHeader.Name = "InvoiceNumberHeader";
-            this.InvoiceNumberHeader.ReadOnly = true;
-            // 
-            // NameHeader
-            // 
-            this.NameHeader.DataPropertyName = "Name";
-            this.NameHeader.HeaderText = "Nazwa";
-            this.NameHeader.Name = "NameHeader";
-            this.NameHeader.ReadOnly = true;
-            // 
-            // VatIDHeader
-            // 
-            this.VatIDHeader.DataPropertyName = "VatID";
-            this.VatIDHeader.HeaderText = "Nip";
-            this.VatIDHeader.Name = "VatIDHeader";
-            this.VatIDHeader.ReadOnly = true;
-            // 
             // ListCustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +124,7 @@
             this.Controls.Add(this.gridView);
             this.Name = "ListCustomersForm";
             this.Text = "Lista Kontrachentow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListCustomersForm_FormClosing);
             this.Load += new System.EventHandler(this.ListCustomersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.statusStrip1.ResumeLayout(false);

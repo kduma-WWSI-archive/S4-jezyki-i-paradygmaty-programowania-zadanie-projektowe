@@ -28,12 +28,6 @@ namespace ZadanieProjektowe.Forms
             ReloadList();
         }
 
-        ~FinalizeTransactionForm()
-        {
-            this.Unsubscribe<NewCustomerWasCreatedEvent>();
-        }
-
-
         private void ReloadList()
         {
             var db = new Entities();
@@ -97,6 +91,11 @@ namespace ZadanieProjektowe.Forms
             var form = new NewCustomerForm(){TopMost = true};
             form.Save += SaveInvoice;
             form.ShowDialog();
+        }
+
+        private void FinalizeTransactionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Unsubscribe<NewCustomerWasCreatedEvent>();
         }
     }
 }

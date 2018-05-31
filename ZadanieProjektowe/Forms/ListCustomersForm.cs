@@ -30,11 +30,6 @@ namespace ZadanieProjektowe.Forms
             });
         }
 
-        ~ListCustomersForm()
-        {
-            this.Unsubscribe<NewCustomerWasCreatedEvent>();
-        }
-
         private void ListCustomersForm_Load(object sender, EventArgs e)
         {
 
@@ -51,6 +46,11 @@ namespace ZadanieProjektowe.Forms
             gridView.DataSource = e.Result;
             StatusBarLoader.Visible = false;
             StatustoolStripStatusLabel.Text = "Gotowe";
+        }
+
+        private void ListCustomersForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Unsubscribe<NewCustomerWasCreatedEvent>();
         }
     }
 }

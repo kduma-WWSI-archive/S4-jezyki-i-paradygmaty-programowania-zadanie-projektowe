@@ -115,6 +115,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Zakończ Sprzedaż";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FinalizeTransactionForm_FormClosing);
             this.Load += new System.EventHandler(this.FinalizeTransactionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
