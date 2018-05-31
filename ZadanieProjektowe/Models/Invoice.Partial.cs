@@ -1,5 +1,6 @@
 ﻿// ReSharper disable once CheckNamespace
-namespace ZadanieProjektowe
+
+namespace ZadanieProjektowe.Models
 {
     public partial class Invoice
     {

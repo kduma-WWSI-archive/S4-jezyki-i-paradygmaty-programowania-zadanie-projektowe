@@ -95,6 +95,7 @@
             this.gridView.ReadOnly = true;
             this.gridView.Size = new System.Drawing.Size(800, 428);
             this.gridView.TabIndex = 2;
+            this.gridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellDoubleClick);
             // 
             // InvoiceNumberHeader
             // 

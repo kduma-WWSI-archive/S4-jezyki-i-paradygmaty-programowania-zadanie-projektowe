@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PubSub;
 using ZadanieProjektowe.Classes.Events;
+using ZadanieProjektowe.Models;
 
 namespace ZadanieProjektowe.Forms
 {

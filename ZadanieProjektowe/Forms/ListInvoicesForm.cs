@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PubSub;
 using ZadanieProjektowe.Classes.Events;
+using ZadanieProjektowe.Models;
 
 namespace ZadanieProjektowe.Forms
 {
@@ -51,6 +52,13 @@ namespace ZadanieProjektowe.Forms
         private void ListInvoicesForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void gridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var invoiceId = (int) gridView.Rows[e.RowIndex].Cells[0].Value;
+            var form = new ViewInvoiceForm(invoiceId) {MdiParent = this.MdiParent};
+            form.Show();
         }
     }
 }

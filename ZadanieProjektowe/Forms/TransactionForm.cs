@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using ZadanieProjektowe.Classes;
+using ZadanieProjektowe.Models;
 
 namespace ZadanieProjektowe.Forms
 {

@@ -1,4 +1,6 @@
-﻿namespace ZadanieProjektowe.Classes
+﻿using ZadanieProjektowe.Models;
+
+namespace ZadanieProjektowe.Classes
 {
     public class SaleItem
     {

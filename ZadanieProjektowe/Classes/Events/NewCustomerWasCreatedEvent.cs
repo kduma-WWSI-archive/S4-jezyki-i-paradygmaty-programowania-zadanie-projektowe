@@ -1,4 +1,6 @@
-﻿namespace ZadanieProjektowe.Classes.Events
+﻿using ZadanieProjektowe.Models;
+
+namespace ZadanieProjektowe.Classes.Events
 {
     public class NewCustomerWasCreatedEvent
     {

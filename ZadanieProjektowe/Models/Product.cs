@@ -7,25 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZadanieProjektowe
+namespace ZadanieProjektowe.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Invoice
+    public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Invoice()
+        public Product()
         {
             this.InvoicesPositions = new HashSet<InvoicesPosition>();
         }
     
         public int Id { get; set; }
-        public System.DateTime Date { get; set; }
-        public int CustomerId { get; set; }
-        public Nullable<decimal> Amount { get; set; }
+        public string Name { get; set; }
+        public string Barcode { get; set; }
+        public short Quanity { get; set; }
+        public decimal Price { get; set; }
     
-        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoicesPosition> InvoicesPositions { get; set; }
     }
