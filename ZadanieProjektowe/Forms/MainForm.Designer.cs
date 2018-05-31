@@ -44,6 +44,9 @@
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaKontrachentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nowyKontrachentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,9 +65,12 @@
             // plikToolStripMenuItem
             // 
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listaFakturToolStripMenuItem,
-            this.listaKontrachentToolStripMenuItem,
             this.nowyToolStripMenuItem,
+            this.listaFakturToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.listaKontrachentToolStripMenuItem,
+            this.nowyKontrachentToolStripMenuItem,
+            this.toolStripSeparator2,
             this.CloseAppToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
@@ -84,7 +90,7 @@
             this.nowyToolStripMenuItem.Name = "nowyToolStripMenuItem";
             this.nowyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.nowyToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.nowyToolStripMenuItem.Text = "&Nowy";
+            this.nowyToolStripMenuItem.Text = "&Nowa Tranzakcja";
             this.nowyToolStripMenuItem.Click += new System.EventHandler(this.NewTransactionToolStripMenuItem_Click);
             // 
             // CloseAppToolStripMenuItem
@@ -174,6 +180,23 @@
             this.listaKontrachentToolStripMenuItem.Text = "Lista Kontrachent";
             this.listaKontrachentToolStripMenuItem.Click += new System.EventHandler(this.listaKontrachentToolStripMenuItem_Click);
             // 
+            // nowyKontrachentToolStripMenuItem
+            // 
+            this.nowyKontrachentToolStripMenuItem.Name = "nowyKontrachentToolStripMenuItem";
+            this.nowyKontrachentToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.nowyKontrachentToolStripMenuItem.Text = "Nowy Kontrachent";
+            this.nowyKontrachentToolStripMenuItem.Click += new System.EventHandler(this.nowyKontrachentToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(240, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(240, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +234,9 @@
         private System.Windows.Forms.ToolStripMenuItem ExtractActiveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaFakturToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaKontrachentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem nowyKontrachentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

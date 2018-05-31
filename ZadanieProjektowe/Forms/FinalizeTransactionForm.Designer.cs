@@ -33,6 +33,7 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.NewAndSaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -47,11 +48,11 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(270, 333);
+            this.SaveButton.Location = new System.Drawing.Point(292, 333);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(239, 51);
+            this.SaveButton.Size = new System.Drawing.Size(217, 51);
             this.SaveButton.TabIndex = 1;
-            this.SaveButton.Text = "Zapisz";
+            this.SaveButton.Text = "Wybierz i Zapisz";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
@@ -59,7 +60,7 @@
             // 
             this.CancelButton.Location = new System.Drawing.Point(12, 333);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(239, 51);
+            this.CancelButton.Size = new System.Drawing.Size(163, 51);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Anuluj";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -85,6 +86,16 @@
             this.listBox1.Size = new System.Drawing.Size(497, 252);
             this.listBox1.TabIndex = 3;
             // 
+            // NewAndSaveButton
+            // 
+            this.NewAndSaveButton.Location = new System.Drawing.Point(181, 333);
+            this.NewAndSaveButton.Name = "NewAndSaveButton";
+            this.NewAndSaveButton.Size = new System.Drawing.Size(105, 51);
+            this.NewAndSaveButton.TabIndex = 1;
+            this.NewAndSaveButton.Text = "Utworz nowego i Zapisz";
+            this.NewAndSaveButton.UseVisualStyleBackColor = true;
+            this.NewAndSaveButton.Click += new System.EventHandler(this.NewAndSaveButton_Click);
+            // 
             // FinalizeTransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -92,6 +103,7 @@
             this.ClientSize = new System.Drawing.Size(521, 396);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.NewAndSaveButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button NewAndSaveButton;
     }
 }

@@ -29,6 +29,11 @@ namespace ZadanieProjektowe.Forms
             });
         }
 
+        ~ListCustomersForm()
+        {
+            this.Unsubscribe<NewCustomerWasCreatedEvent>();
+        }
+
         private void ListCustomersForm_Load(object sender, EventArgs e)
         {
 

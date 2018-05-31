@@ -17,12 +17,24 @@ namespace ZadanieProjektowe.Forms
         {
             _transaction = transaction;
             InitializeComponent();
+            this.Subscribe<NewCustomerWasCreatedEvent>(ec => ReloadList());
         }
 
         private void FinalizeTransactionForm_Load(object sender, EventArgs e)
         {
             label1.Text = _transaction.Sum.ToString("C");
 
+            ReloadList();
+        }
+
+        ~FinalizeTransactionForm()
+        {
+            this.Unsubscribe<NewCustomerWasCreatedEvent>();
+        }
+
+
+        private void ReloadList()
+        {
             var db = new Entities();
             listBox1.DataSource = db.Customers.ToList();
             listBox1.DisplayMember = "Name";
@@ -31,10 +43,14 @@ namespace ZadanieProjektowe.Forms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var db = new Entities();
-
             var customer = ((Customer)listBox1.SelectedItem);
 
+            SaveInvoice(customer);
+        }
+
+        private void SaveInvoice(Customer customer)
+        {
+            var db = new Entities();
             var invoice = new Invoice
             {
                 CustomerId = customer.Id,
@@ -51,7 +67,6 @@ namespace ZadanieProjektowe.Forms
                     ProductId = transactionItem.Product.Id,
                     Price = transactionItem.Product.Price,
                     Quanity = (short) transactionItem.Quanity
-
                 };
                 db.InvoicesPositions.Add(position);
                 var product = db.Products.First(p => p.Id == transactionItem.Product.Id);
@@ -59,7 +74,7 @@ namespace ZadanieProjektowe.Forms
             }
 
             db.SaveChanges();
-            
+
             OnSave(invoice);
             Close();
         }
@@ -73,6 +88,14 @@ namespace ZadanieProjektowe.Forms
         {
             Save?.Invoke(_transaction);
             this.Publish(new NewInvoiceWasCreatedEvent(invoice));
+        }
+
+        private void NewAndSaveButton_Click(object sender, EventArgs e)
+        {
+
+            var form = new NewCustomerForm(){TopMost = true};
+            form.Save += SaveInvoice;
+            form.ShowDialog();
         }
     }
 }

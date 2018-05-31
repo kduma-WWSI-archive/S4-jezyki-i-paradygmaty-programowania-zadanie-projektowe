@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +45,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.FastSaleFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.FinishButton = new System.Windows.Forms.Button();
             this.TransactionProductsDataGridView = new System.Windows.Forms.DataGridView();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -163,7 +162,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(150, 40);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -193,16 +191,6 @@
             this.FastSaleFlowLayoutPanel.Name = "FastSaleFlowLayoutPanel";
             this.FastSaleFlowLayoutPanel.Size = new System.Drawing.Size(502, 429);
             this.FastSaleFlowLayoutPanel.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(508, 435);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Wszystkie Produkty";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FinishButton
             // 
@@ -249,9 +237,9 @@
             // QuanityColumn
             // 
             this.QuanityColumn.DataPropertyName = "DetailedQuanity";
-            dataGridViewCellStyle4.Format = "# jm\\.";
-            dataGridViewCellStyle4.NullValue = null;
-            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "# jm\\.";
+            dataGridViewCellStyle1.NullValue = null;
+            this.QuanityColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.QuanityColumn.Frozen = true;
             this.QuanityColumn.HeaderText = "Ilość";
             this.QuanityColumn.Name = "QuanityColumn";
@@ -261,9 +249,9 @@
             // PriceColumn
             // 
             this.PriceColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.PriceColumn.Frozen = true;
             this.PriceColumn.HeaderText = "Cena";
             this.PriceColumn.Name = "PriceColumn";
@@ -273,9 +261,9 @@
             // SumColumn
             // 
             this.SumColumn.DataPropertyName = "Sum";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.SumColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.SumColumn.Frozen = true;
             this.SumColumn.HeaderText = "Suma";
             this.SumColumn.Name = "SumColumn";
@@ -330,7 +318,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.FlowLayoutPanel FastSaleFlowLayoutPanel;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView TransactionProductsDataGridView;
         private System.Windows.Forms.Button FinishButton;
         private System.ComponentModel.BackgroundWorker ProductsDownloader;

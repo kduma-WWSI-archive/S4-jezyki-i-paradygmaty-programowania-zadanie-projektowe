@@ -72,6 +72,12 @@ namespace ZadanieProjektowe.Forms
             form.Show();
         }
 
+        private void OpenNewCustomerForm()
+        {
+            var form = new NewCustomerForm {MdiParent = this};
+            form.Show();
+        }
+
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MdiChildren.OfType<AboutBox>().Any()) return;
@@ -144,6 +150,11 @@ namespace ZadanieProjektowe.Forms
         private void listaKontrachentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenCustomersListForm();
+        }
+
+        private void nowyKontrachentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenNewCustomerForm();
         }
     }
 }

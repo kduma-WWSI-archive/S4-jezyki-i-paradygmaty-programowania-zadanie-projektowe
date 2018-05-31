@@ -132,7 +132,7 @@
             this.Controls.Add(this.gridView);
             this.Controls.Add(this.statusStrip1);
             this.Name = "ListInvoicesForm";
-            this.Text = "Lista Faktor";
+            this.Text = "Lista Faktur";
             this.Load += new System.EventHandler(this.ListInvoicesForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
