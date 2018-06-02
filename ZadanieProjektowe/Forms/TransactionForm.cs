@@ -109,8 +109,10 @@ namespace ZadanieProjektowe.Forms
             form.ShowDialog();
         }
 
-        private void FormOnSave(Transaction obj)
+        private void FormOnSave(Invoice obj)
         {
+            var form = new ViewInvoiceForm(obj.Id) { MdiParent = this.MdiParent };
+            form.Show();
             Close();
         }
 

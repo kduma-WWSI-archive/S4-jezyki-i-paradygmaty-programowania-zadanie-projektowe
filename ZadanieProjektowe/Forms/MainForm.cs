@@ -10,6 +10,7 @@ namespace ZadanieProjektowe.Forms
     public partial class MainForm : Form
     {
         private readonly BarCodeScanner _scanner = new BarCodeScanner();
+        private readonly ThermalPrinter _printer = new ThermalPrinter();
 
         public MainForm()
         {
@@ -21,6 +22,13 @@ namespace ZadanieProjektowe.Forms
                 Invoke(new Action(() =>
                 {
                     MessageBox.Show("Skaner Kodów Kreskowych nie został podłączony.\nSkanowanie kodów nie będzie możliwe.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }));
+            });
+
+            this.Subscribe<CantConnectToTheThermalPrinterEvent>(e => {
+                Invoke(new Action(() =>
+                {
+                    MessageBox.Show("Drukarka termiczna nie została podłączona.\nDrukowanie faktur nie będzie możliwe.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }));
             });
 
@@ -136,6 +144,7 @@ namespace ZadanieProjektowe.Forms
         private void MainForm_Load(object sender, EventArgs e)
         {
             _scanner.Start();
+            _printer.Start();
 
             OpenNewTransactionForm();
             OpenInvoicesListForm();

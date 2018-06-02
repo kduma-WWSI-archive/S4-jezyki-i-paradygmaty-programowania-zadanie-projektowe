@@ -12,7 +12,7 @@ namespace ZadanieProjektowe.Forms
     {
         private readonly Transaction _transaction;
 
-        public event Action<Transaction> Save;
+        public event Action<Invoice> Save;
 
         public FinalizeTransactionForm(Transaction transaction)
         {
@@ -81,7 +81,7 @@ namespace ZadanieProjektowe.Forms
 
         protected virtual void OnSave(Invoice invoice)
         {
-            Save?.Invoke(_transaction);
+            Save?.Invoke(invoice);
             this.Publish(new NewInvoiceWasCreatedEvent(invoice));
         }
 

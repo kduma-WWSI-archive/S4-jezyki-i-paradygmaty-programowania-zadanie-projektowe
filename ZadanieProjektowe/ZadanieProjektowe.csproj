@@ -117,8 +117,12 @@
     <Compile Include="Classes\Events\BarcodeErrorEncounteredEvent.cs" />
     <Compile Include="Classes\Events\BarcodeWasScannedEvent.cs" />
     <Compile Include="Classes\Events\CantConnectToTheBarcodeReaderEvent.cs" />
+    <Compile Include="Classes\Events\CantConnectToTheThermalPrinterEvent.cs" />
     <Compile Include="Classes\Events\NewCustomerWasCreatedEvent.cs" />
+    <Compile Include="Classes\Events\NewInvoicePrintoutEvent.cs" />
     <Compile Include="Classes\Events\NewInvoiceWasCreatedEvent.cs" />
+    <Compile Include="Classes\Events\NewPrintoutEvent.cs" />
+    <Compile Include="Classes\ThermalPrinter.cs" />
     <Compile Include="Models\Invoice.Partial.cs" />
     <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>

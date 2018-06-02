@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PubSub;
+using ZadanieProjektowe.Classes.Events;
 using ZadanieProjektowe.Models;
 
 namespace ZadanieProjektowe.Forms
@@ -34,6 +36,11 @@ namespace ZadanieProjektowe.Forms
             SumLabel.Text = ((decimal)_invoice.Amount).ToString("C");
             BuyerLabel.Text = $"{_invoice.Customer.Name}\nNIP: {_invoice.Customer.VatID}\n{_invoice.Customer.Address}";
             PositionsGW.DataSource = _invoice.InvoicesPositions.ToList();
+        }
+
+        private void drukujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Publish(new NewInvoicePrintoutEvent(_invoice));
         }
     }
 }
