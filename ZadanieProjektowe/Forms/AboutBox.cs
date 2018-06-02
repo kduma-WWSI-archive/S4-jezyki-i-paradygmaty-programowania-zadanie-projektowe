@@ -12,6 +12,7 @@ namespace ZadanieProjektowe.Forms
         public AboutBox()
         {
             InitializeComponent();
+
             this.Text = String.Format("Informacje o {0} v{1}", AssemblyInfoHelper.GetTitle(), AssemblyInfoHelper.GetVersion());
             this.labelProductName.Text = AssemblyInfoHelper.GetProduct();
             this.labelVersion.Text = String.Format("Wersja {0}", AssemblyInfoHelper.GetVersion());
@@ -31,6 +32,8 @@ namespace ZadanieProjektowe.Forms
         private int _angle = 0;
         private void AboutBox_Paint(object sender, PaintEventArgs e)
         {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
             var m = e.Graphics.Transform;
 
             e.Graphics.TranslateTransform(75, 75);
@@ -38,6 +41,7 @@ namespace ZadanieProjektowe.Forms
             e.Graphics.RotateTransform(_angle);
             // ReSharper disable once PossibleLossOfFraction
             e.Graphics.DrawImage(_gearImage, -256, -256);
+
             e.Graphics.Transform = m;
         }
 
